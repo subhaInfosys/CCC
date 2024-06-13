@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Log;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Jobs\ProcessUploadProducts;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
@@ -32,7 +33,7 @@ class UploadController extends ApiController
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function updateProductMaster(Request $request)
+    public function updateProductMaster(Request $request): JsonResponse
     {
         try{
             $prodCsvValidate = Validator::make($request->all(),[

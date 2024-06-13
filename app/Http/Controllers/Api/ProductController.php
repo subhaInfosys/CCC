@@ -6,6 +6,7 @@ use Log;
 use Exception;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class ProductController extends ApiController
 {
@@ -30,7 +31,7 @@ class ProductController extends ApiController
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function getProducts(Request $request)
+    public function getProducts(Request $request): JsonResponse
     {
         $products = Product::paginate(5);
 
